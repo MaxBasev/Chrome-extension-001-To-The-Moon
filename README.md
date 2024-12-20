@@ -30,6 +30,7 @@ A Chrome extension that shows the top cryptocurrency gainers in the last 24 hour
 The extension is built using vanilla JavaScript and uses the CoinGecko API for cryptocurrency data.
 
 ### Project Structure 
+```
 extension/
 ├── manifest.json
 ├── assets/
@@ -43,7 +44,7 @@ extension/
 ├── popup.html
 ├── popup.css
 └── popup.js
-
+```
 ### API
 Data is provided by the [CoinGecko API](https://www.coingecko.com/en/api)
 
