@@ -1,0 +1,30 @@
+{
+	"manifest_version": 3,
+	"name": "🚀 To The Moon!",
+	"version": "1.0",
+	"description": "Track the most promising rockets heading to the moon! Top crypto gainers tracker.",
+	"permissions": [
+		"storage"
+	],
+	"action": {
+		"default_popup": "popup/popup.html",
+		"default_icon": {
+			"16": "assets/icon16.png",
+			"24": "assets/icon24.png",
+			"32": "assets/icon32.png",
+			"48": "assets/icon48.png",
+			"64": "assets/icon64.png",
+			"128": "assets/icon128.png",
+			"256": "assets/icon256.png"
+		}
+	},
+	"icons": {
+		"16": "assets/icon16.png",
+		"24": "assets/icon24.png",
+		"32": "assets/icon32.png",
+		"48": "assets/icon48.png",
+		"64": "assets/icon64.png",
+		"128": "assets/icon128.png",
+		"256": "assets/icon256.png"
+	}
+}
