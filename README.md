@@ -17,7 +17,7 @@ A Chrome extension that shows the top cryptocurrency gainers in the last 24 hour
 ## Installation
 
 ### From Chrome Web Store
-*(Coming soon)*
+*[Link](https://chromewebstore.google.com/detail/%F0%9F%9A%80-to-the-moon/aepcdjhplhadhedgoejeccologmjbghc?authuser=0&hl=en)*
 
 ### Manual Installation
 1. Clone this repository
