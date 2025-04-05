@@ -1,51 +1,156 @@
+:root {
+  /* Dark theme (default) */
+  --bg-primary: #121212;
+  --bg-secondary: #1e1e1e;
+  --bg-tertiary: #252525;
+  --text-primary: #ffffff;
+  --text-secondary: #b0b0b0;
+  --text-tertiary: #707070;
+  --border: #333333;
+  --accent: #ffd700; /* золотой акцент для темной темы */
+  --positive: #00c853;
+  --negative: #ff5252;
+  --shadow: rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="light"] {
+  --bg-primary: #f8f9fa;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f1f3f5;
+  --text-primary: #212529;
+  --text-secondary: #495057;
+  --text-tertiary: #6c757d;
+  --border: #dee2e6;
+  --accent: #6200ee; /* фиолетовый акцент для светлой темы */
+  --positive: #00b248;
+  --negative: #e53935;
+  --shadow: rgba(0, 0, 0, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: background-color 0.3s, color 0.3s;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  background: #1a1a1a;
-  color: #ffffff;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  width: 350px;
 }
 
 .container {
-  width: 300px;
-  padding: 12px;
-  box-sizing: border-box;
+  padding: 16px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.coins-select {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-primary);
+  font-size: 12px;
+  padding: 8px 10px;
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a0a0a0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 12px;
+  padding-right: 28px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.coins-select:hover {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.coins-select option {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
 }
 
 h2 {
-  margin: 0 0 16px 0;
-  font-size: 16px;
-  font-weight: 500;
-  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
+.theme-toggle {
+  background: var(--bg-tertiary);
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  transition: transform 0.2s;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.05);
+  background: var(--bg-secondary);
+}
+
+.theme-toggle svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--text-secondary);
+}
+
 .crypto-item {
-  background: #252525;
-  border-radius: 8px;
-  margin-bottom: 8px;
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  margin-bottom: 10px;
   overflow: hidden;
+  box-shadow: 0 2px 8px var(--shadow);
+  border: 1px solid var(--border);
 }
 
 .crypto-main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px;
+  padding: 14px;
   cursor: pointer;
 }
 
 .coin-info {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
 }
 
 .coin-icon {
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
+  background: var(--bg-tertiary);
 }
 
 .coin-details {
@@ -55,33 +160,37 @@ h2 {
 
 .coin-name {
   font-size: 14px;
-  font-weight: 500;
-  color: #ffffff;
+  font-weight: 600;
+  color: var(--text-primary);
 }
 
 .coin-symbol {
   font-size: 12px;
-  color: #666;
+  color: var(--text-secondary);
   text-transform: uppercase;
 }
 
 .percentage {
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 6px;
+  padding: 4px 8px;
 }
 
 .positive {
-  color: #00f7a0;
+  color: var(--positive);
+  background: rgba(0, 200, 83, 0.1);
 }
 
 .negative {
-  color: #ff5757;
+  color: var(--negative);
+  background: rgba(255, 82, 82, 0.1);
 }
 
 .coin-expanded {
-  background: #2a2a2a;
-  padding: 12px;
-  border-top: 1px solid #333;
+  background: var(--bg-tertiary);
+  padding: 16px;
+  border-top: 1px solid var(--border);
   display: none;
 }
 
@@ -93,39 +202,123 @@ h2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 6px 0;
-  font-size: 12px;
-  color: #999;
-  border-bottom: 1px solid #333;
+  padding: 8px 0;
+  font-size: 13px;
 }
 
-.expanded-row:last-of-type {
-  border-bottom: none;
-  margin-bottom: 8px;
+.expanded-row:not(:last-child) {
+  border-bottom: 1px solid var(--border);
 }
 
 .expanded-row span:first-child {
-  color: #999;
+  color: var(--text-secondary);
 }
 
 .expanded-row span:last-child {
-  color: #fff;
+  color: var(--text-primary);
   font-weight: 500;
 }
 
 .coingecko-link {
   display: inline-block;
-  margin-top: 8px;
-  padding: 8px 12px;
-  background: #2f2f2f;
-  border-radius: 6px;
-  color: #00f7a0;
+  margin-top: 12px;
+  padding: 10px 14px;
+  background: var(--accent);
+  border-radius: 8px;
+  color: var(--bg-secondary);
   text-decoration: none;
   font-size: 13px;
-  transition: background 0.2s;
+  font-weight: 600;
+  text-align: center;
+  transition: transform 0.2s;
+  width: 100%;
 }
 
 .coingecko-link:hover {
-  background: #363636;
+  transform: translateY(-2px);
+}
+
+#loading {
+  text-align: center;
+  padding: 20px;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.error-message {
+  text-align: center;
+  padding: 20px;
+  color: var(--negative);
+  font-size: 14px;
+}
+
+/* Анимация загрузки */
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+#loading {
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+/* Индикатор обновления данных */
+.refresh-indicator {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  text-align: center;
+  padding: 10px 0 0;
+}
+
+/* Стили для футера автора */
+.author-footer {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.author-links {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.author-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--bg-tertiary);
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.author-link:hover {
+  transform: translateY(-3px);
+  background-color: var(--accent);
+}
+
+.author-link:hover .author-icon {
+  fill: var(--bg-secondary);
+}
+
+.author-icon {
+  width: 20px;
+  height: 20px;
+  fill: var(--text-secondary);
+  transition: fill 0.2s;
+}
+
+.author-credit {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  text-align: center;
+  margin-bottom: 5px;
 }
   
