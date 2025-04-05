@@ -8,7 +8,7 @@ A Chrome extension that shows the top cryptocurrency gainers in the last 24 hour
 
 <p align="center">
   <img src="assets/Screen-1.png" alt="Dark Theme" width="400"/>
-  <img src="assets/Screen-2.png" alt="Light Theme" width="400"/>
+  <img src="assets/Screen-3.png" alt="Light Theme" width="400"/>
 </p>
 
 ## Features
