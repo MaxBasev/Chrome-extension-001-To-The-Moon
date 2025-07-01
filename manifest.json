@@ -1,13 +1,15 @@
 {
 	"manifest_version": 3,
 	"name": "🚀 To The Moon!",
-	"version": "1.4",
-	"description": "Track crypto rockets with a beautiful UI. Features: Light/Dark themes, customizable coin count.",
+	"version": "2.0",
+	"description": "Track crypto rockets with beautiful UI. Features: Side Panel, CoinGecko & Binance APIs, Light/Dark themes.",
 	"permissions": [
-		"storage"
+		"storage",
+		"sidePanel"
 	],
 	"host_permissions": [
-		"https://api.coingecko.com/*"
+		"https://api.coingecko.com/*",
+		"https://api.binance.com/*"
 	],
 	"action": {
 		"default_popup": "popup/popup.html",
@@ -20,6 +22,9 @@
 			"128": "assets/icon128.png",
 			"256": "assets/icon256.png"
 		}
+	},
+	"side_panel": {
+		"default_path": "sidepanel/sidepanel.html"
 	},
 	"icons": {
 		"16": "assets/icon16.png",

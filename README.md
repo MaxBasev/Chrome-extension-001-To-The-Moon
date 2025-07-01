@@ -15,15 +15,19 @@ A Chrome extension that shows the top cryptocurrency gainers in the last 24 hour
 
 - 📈 Real-time tracking of top crypto gainers
 - 🌗 Light and Dark themes with beautiful UI
-- 🔢 Customizable number of coins to display (5, 10, 15, or 20)
+- 📱 **Side Panel Support** - Extended view with pinning option
+- 🔢 Customizable number of coins to display (5-50 in side panel)
+- 🦎 **CoinGecko Integration** - Comprehensive market data
+- 🟡 **Binance API Support** - Real-time trading data with sorting options
+- 📑 **Tab-based Interface** - Switch between different data sources
 - 💫 Clean and intuitive interface
 - 🔄 Auto-updates every 3 minutes
 - 📊 Detailed coin information including:
-  - Price
-  - Market Cap
-  - Volume
+  - Price and price changes
+  - Market Cap & Volume
   - Supply metrics
-  - Price change percentage
+  - Trading data (Binance)
+  - Direct links to exchanges
 
 ## Installation
 
@@ -44,21 +48,20 @@ The extension is built using vanilla JavaScript and uses the CoinGecko API for c
 ```
 extension/
 ├── manifest.json
-├── assets/
-│   ├── icon16.png
-│   ├── icon32.png
-│   ├── icon48.png
-│   ├── icon64.png
-│   ├── icon128.png
-│   └── icon256.png
-└── popup/
-    ├── popup.html
-    ├── popup.css
-    └── popup.js
+├── assets/ (icons and promotional images)
+├── popup/ (main popup interface)
+│   ├── popup.html
+│   ├── popup.css
+│   └── popup.js
+└── sidepanel/ (extended side panel interface)
+    ├── sidepanel.html
+    ├── sidepanel.css
+    └── sidepanel.js
 ```
 
-### API
-Data is provided by the [CoinGecko API](https://www.coingecko.com/en/api)
+### APIs
+- **CoinGecko API**: Comprehensive cryptocurrency market data
+- **Binance API**: Real-time trading data and 24h statistics
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.

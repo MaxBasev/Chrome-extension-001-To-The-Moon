@@ -233,6 +233,15 @@ function formatLargeNumber(num) {
 	}
 }
 
+// Функция для открытия side panel
+async function openSidePanel() {
+	try {
+		await chrome.sidePanel.open({ windowId: (await chrome.windows.getCurrent()).id });
+	} catch (error) {
+		console.error('Error opening side panel:', error);
+	}
+}
+
 // Инициализация при загрузке страницы
 document.addEventListener('DOMContentLoaded', () => {
 	// Загружаем сохраненную тему из localStorage
@@ -255,6 +264,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	// Добавляем обработчик события на селектор количества монет
 	document.getElementById('coins-count').addEventListener('change', saveCoinsCount);
+
+	// Добавляем обработчик для открытия side panel
+	document.getElementById('open-sidepanel').addEventListener('click', openSidePanel);
 
 	// Загружаем данные о криптовалютах
 	fetchTopGainers();

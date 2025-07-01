@@ -98,7 +98,7 @@ h2 {
   gap: 8px;
 }
 
-.theme-toggle {
+.control-button, .theme-toggle {
   background: var(--bg-tertiary);
   border: none;
   width: 36px;
@@ -112,12 +112,12 @@ h2 {
   transition: transform 0.2s;
 }
 
-.theme-toggle:hover {
+.control-button:hover, .theme-toggle:hover {
   transform: scale(1.05);
   background: var(--bg-secondary);
 }
 
-.theme-toggle svg {
+.control-button svg, .theme-toggle svg {
   width: 20px;
   height: 20px;
   fill: var(--text-secondary);

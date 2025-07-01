@@ -3,8 +3,9 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>🚀 To The Moon!</title>
-	<link rel="stylesheet" href="popup.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>🚀 To The Moon! - Side Panel</title>
+	<link rel="stylesheet" href="sidepanel.css">
 </head>
 
 <body>
@@ -12,19 +13,20 @@
 		<div class="header">
 			<h2>🌙 Moon Rockets</h2>
 			<div class="controls">
-				<button id="open-sidepanel" class="control-button" title="Open Side Panel">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+				<button id="pin-panel" class="control-button" title="Pin/Unpin Panel">
+					<svg id="pin-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 						<path
-							d="M3 9h14V7H3v2zm0 4h14v-2H3v2zm0 4h14v-2H3v2zm16 0h2v-2h-2v2zm0-10v2h2V7h-2zm0 6h2v-2h-2v2z" />
+							d="M16 12V4a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v8H6a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1v5a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-5h1a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1h-2zm-6 7v-4h4v4h-4zm4-6H10V5h4v8z" />
 					</svg>
 				</button>
 				<select id="coins-count" class="coins-select" aria-label="Number of coins to display">
-					<option value="5">5 coins</option>
 					<option value="10" selected>10 coins</option>
 					<option value="15">15 coins</option>
 					<option value="20">20 coins</option>
+					<option value="30">30 coins</option>
+					<option value="50">50 coins</option>
 				</select>
-				<button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+				<button id="theme-toggle" class="control-button" aria-label="Toggle theme">
 					<svg id="dark-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 						<path
 							d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z" />
@@ -36,9 +38,46 @@
 				</button>
 			</div>
 		</div>
-		<div id="crypto-list"></div>
-		<div id="loading">Searching for rockets... 🔭</div>
-		<div class="refresh-indicator" id="last-updated"></div>
+
+		<div class="tabs-container">
+			<div class="tabs">
+				<button class="tab-button active" data-tab="coingecko">
+					<span>🦎 CoinGecko</span>
+				</button>
+				<button class="tab-button" data-tab="binance">
+					<span>🟡 Binance</span>
+				</button>
+			</div>
+		</div>
+
+		<div class="tab-content">
+			<!-- CoinGecko Tab -->
+			<div id="coingecko-tab" class="tab-panel active">
+				<div id="coingecko-loading" class="loading">Searching for rockets... 🔭</div>
+				<div id="coingecko-list" class="crypto-list"></div>
+				<div class="refresh-indicator" id="coingecko-last-updated"></div>
+			</div>
+
+			<!-- Binance Tab -->
+			<div id="binance-tab" class="tab-panel">
+				<div class="binance-controls">
+					<select id="binance-sort" class="sort-select">
+						<option value="volume">Market Activity (Volume)</option>
+						<option value="priceChangePercent">24h Change %</option>
+						<option value="count">Trade Count</option>
+					</select>
+					<button id="refresh-binance" class="refresh-button">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+							<path
+								d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
+						</svg>
+					</button>
+				</div>
+				<div id="binance-loading" class="loading" style="display: none;">Loading Binance data... ⚡</div>
+				<div id="binance-list" class="crypto-list"></div>
+				<div class="refresh-indicator" id="binance-last-updated"></div>
+			</div>
+		</div>
 
 		<footer class="author-footer">
 			<div class="author-links">
@@ -64,7 +103,7 @@
 			<div class="author-credit">Made with ❤️ by Max Basev</div>
 		</footer>
 	</div>
-	<script src="popup.js"></script>
+	<script src="sidepanel.js"></script>
 </body>
 
 </html>
