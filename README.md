@@ -67,6 +67,6 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 [MIT](https://choosealicense.com/licenses/mit/)
 
 ## Author
-- Website: [maxbasev.com](https://maxbasev.com)
+- Website: [lab.maxbasev.com](https://lab.maxbasev.com)
 - GitHub: [@MaxBasev](https://github.com/MaxBasev)
 - Blog: [en.skazoff.com](https://en.skazoff.com)
